@@ -42,6 +42,18 @@ dark olive bags contain 3 faded blue bags, 4 dotted black bags.
 vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
 faded blue bags contain no other bags.
 dotted black bags contain no other bags.`
+const testInput2 = `shiny gold bags contain 1 dark olive bag, 2 vibrant plum bags.
+faded blue bags contain no other bags.
+dotted black bags contain no other bags.
+vibrant plum bags contain 5 faded blue bags, 6 dotted black bags.
+dark olive bags contain 3 faded blue bags, 4 dotted black bags.`
+const testInput3 = `shiny gold bags contain 2 dark red bags.
+dark red bags contain 2 dark orange bags.
+dark orange bags contain 2 dark yellow bags.
+dark yellow bags contain 2 dark green bags.
+dark green bags contain 2 dark blue bags.
+dark blue bags contain 2 dark violet bags.
+dark violet bags contain no other bags.`
 
 const ruleSentences = input.replace(/ bags?/g, '').split('.\n')
 const rules = {}
@@ -119,31 +131,37 @@ Object.keys(rules).forEach(key => {
   }, 0)
   bagsWithSums[key] = { bags: rules[key], sum }
 })
-let total = 0
-const callme = (c) => rules[c].forEach(color => {
-    let howMany = Number(color.substr(0, color.indexOf(' '))) // get number from color string, e.g. '3 shiny gold'
-    let innerColor = color.substr(color.indexOf(' ') + 1) // remove number in front
-    if (Number(howMany) && bagsWithSums[innerColor]) {
-      callme(innerColor)
-    } else {
-      return total = total + 1
-    }
-    console.log(howMany, innerColor,  bagsWithSums[innerColor])
-    return total = total + 1 + howMany * bagsWithSums[innerColor].sum
-})
 
-// TODO: recursive
-// const countContaingBags = (currentColor, total) => {
-//   let howMany = Number(currentColor.substr(0, currentColor.indexOf(' '))) // get number in front
-//   let color = currentColor.substr(currentColor.indexOf(' ') + 1) // remove number in front
-//   if (!howMany || color === 'no other') return 1
-//   rules[color].forEach(innerColor => {
-//     console.log(howMany, color, innerColor)
-//     total = total + howMany * countContaingBags(innerColor, total)
-//     return howMany * countContaingBags(innerColor, total)
-//   })
-// }
-// console.log('result #2: ', countContaingBags(`1 ${WANTED_COLOR}`))
+// let total = 0
+// const callme = (c) => rules[c].forEach(color => {
+//     let howMany = Number(color.substr(0, color.indexOf(' '))) // get number from color string, e.g. '3 shiny gold'
+//     let innerColor = color.substr(color.indexOf(' ') + 1) // remove number in front
+//     if (Number(howMany) && bagsWithSums[innerColor]) {
+//       callme(innerColor)
+//     } else {
+//       return total = total + 1
+//     }
+//     console.log(howMany, innerColor,  bagsWithSums[innerColor])
+//     return total = total + 1 + howMany * bagsWithSums[innerColor].sum
+// })
+// callme(WANTED_COLOR)
 
-callme(WANTED_COLOR)
-console.log('result #2: ', total)
+const countContainingBags = (currentColor) => {
+  let howMany = Number(currentColor.substr(0, currentColor.indexOf(' '))) // get number in front
+  let color = currentColor.substr(currentColor.indexOf(' ') + 1) // remove number in front
+  console.log('----', color)
+  if (!howMany || color.includes('other')) return 1
+  if (!rules[color]) {
+    console.log('how???', currentColor)
+  }
+
+  let total = 1
+  rules[color].forEach(innerColor => {
+    console.log(total, howMany, innerColor)
+    // total + howMany * (total + howMany * 1)
+    total = total + howMany * countContainingBags(innerColor)
+  })
+  return total
+}
+
+console.log('result #2: ', countContainingBags(`1 ${WANTED_COLOR}`) - 2)
