@@ -133,7 +133,10 @@ console.log('result #1 ', findInvalid(numbers, 25))
 
 // What is the encryption weakness in your XMAS-encrypted list of numbers?
 
-
+/**
+ * @param {number[]} nums
+ * @param {number} invalidNumber
+ */
 const findXmasWeakness = (nums, invalidNumber) => {
   const checkNums = [...nums]
   let startIndex = -1
