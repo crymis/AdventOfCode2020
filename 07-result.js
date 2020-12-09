@@ -147,21 +147,20 @@ Object.keys(rules).forEach(key => {
 // callme(WANTED_COLOR)
 
 const countContainingBags = (currentColor) => {
-  let howMany = Number(currentColor.substr(0, currentColor.indexOf(' '))) // get number in front
   let color = currentColor.substr(currentColor.indexOf(' ') + 1) // remove number in front
   console.log('----', color)
-  if (!howMany || color.includes('other')) return 1
-  if (!rules[color]) {
-    console.log('how???', currentColor)
-  }
+  if (color.includes('other')) return 1
 
   let total = 1
   rules[color].forEach(innerColor => {
-    console.log(total, howMany, innerColor)
-    // total + howMany * (total + howMany * 1)
-    total = total + howMany * countContainingBags(innerColor)
+    if (rules[innerColor.substr(currentColor.indexOf(' ') + 1)]) {
+      let howMany = Number(innerColor.substr(0, innerColor.indexOf(' '))) // get number in front
+      console.log(total, howMany, innerColor)
+      // total + howMany * (total + howMany * 1)
+      total = total + howMany * countContainingBags(innerColor)
+    }
   })
   return total
 }
 
-console.log('result #2: ', countContainingBags(`1 ${WANTED_COLOR}`) - 2)
+console.log('result #2: ', countContainingBags(`1 ${WANTED_COLOR}`) - 1) // -1 for the outest shiny gold
