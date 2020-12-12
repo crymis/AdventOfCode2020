@@ -194,43 +194,43 @@ console.log('result #1: ', res)
 
 // What is the total number of distinct ways you can arrange the adapters to connect the charging outlet to your device?
 
-const adapterArrayVariants = [...testAdapterArray2]
-let arrangements = []
-const isValid = (arr: number[]) => {
-  // 0.948ms per check
-  const diffArray = arr.map((jolts, i) => arr[i + 1] ? arr[i + 1] - jolts : 0)
-  if (Math.min(...diffArray) < 0 || Math.max(...diffArray) > 3) {
-    return false
-  }
-  return true
-}
-const isValidShort = (arr: number[]) => {
-  // 0.012ms per check
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i + 1] && arr[i + 1] - arr[i] > 3) return false
-  }
-  return true
-}
-const truncate = (arr: number[]) => {
-  // console.log(arr.length)
-  if (arr.length <= 2) return
-  for (let i = 1; i < arr.length - 1; i++) {
-    if (arr[i + 1] - arr[i] >= 3) { // perfomance optimization
-      i++
-      continue
-    }
-    const newArr = arr.filter((_, k) => k !== i)
-    if (isValidShort(newArr)) {
-      if (!arrangements.map(x => x.join()).includes(newArr.join())) {
-        arrangements.push(newArr)
-      }
-      truncate(newArr)
-    }
-  }
-}
-truncate(adapterArrayVariants)
-console.log('result #2: ', arrangements.length + 1) // +1 for the origin state itself
+// const adapterArrayVariants = [...testAdapterArray]
+// let arrangements = []
+// const isValid = (arr: number[]) => {
+//   // 0.948ms per check
+//   const diffArray = arr.map((jolts, i) => arr[i + 1] ? arr[i + 1] - jolts : 0)
+//   if (Math.min(...diffArray) < 0 || Math.max(...diffArray) > 3) {
+//     return false
+//   }
+//   return true
+// }
+// const isValidShort = (arr: number[]) => {
+//   // 0.012ms per check
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i + 1] && arr[i + 1] - arr[i] > 3) return false
+//   }
+//   return true
+// }
+// const truncate = (arr: number[]) => {
+//   // console.log(arr.length)
+//   if (arr.length <= 2) return
+//   for (let i = 1; i < arr.length - 1; i++) {
+//     if (arr[i - 1] + arr[i + 1] >= 3) { // perfomance optimization
+//       continue
+//     }
+//     const newArr = arr.filter((_, k) => k !== i)
+//     if (isValidShort(newArr)) {
+//       if (!arrangements.map(x => x.join()).includes(newArr.join())) {
+//         arrangements.push(newArr)
+//       }
+//       truncate(newArr)
+//     }
+//   }
+// }
+// truncate(adapterArrayVariants)
 
+
+// TRY SHORT VERSION...  not working
 // const shortCut = (arr: number[]): number => {
 //   let count = 1
 //   const diffArray = arr.map((jolts, i) => arr[i + 1] ? arr[i + 1] - jolts : 0)
@@ -258,3 +258,26 @@ console.log('result #2: ', arrangements.length + 1) // +1 for the origin state i
 // }
 // console.log('result #2: ', shortCut(adapterArrayVariants))
 
+
+// TRY HACKY VERSION
+let permutations = 1
+// const numOnes = diffArray.filter(v => v === 1).length
+// const numTwos = diffArray.filter(v => v === 2).length
+// const numThrees = diffArray.filter(v => v === 3).length
+const onlyOnesInARow = diffArray.join('').split('3').filter(x => x !== '' && x !== '0')
+onlyOnesInARow.forEach(ones => {
+  switch (ones.length) {
+    // (0) 1 4
+    case 1: break;
+    // (0) 1 2 5
+    case 2: permutations *= 2; break;
+    // (0) 1 2 3 6
+    case 3: permutations *= 4; break;
+    // (0) 1 2 3 4 7
+    case 4: permutations *= 7; break;
+    // (0) 1 2 3 4 5 8
+    // case 5: permutations *= 11; break;
+    default: console.log('more?! ', ones.length)
+  }
+})
+console.log('result #2: ', permutations, onlyOnesInARow)

@@ -1,11 +1,4 @@
 "use strict";
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
 exports.__esModule = true;
 var fs_1 = require("fs");
 // --- Day 10: Adapter Array ---
@@ -125,50 +118,41 @@ console.log('result #1: ', res);
 // In total, this set of adapters can connect the charging outlet to your device in 19208 distinct arrangements.
 // You glance back down at your bag and try to remember why you brought so many adapters; there must be more than a trillion valid ways to arrange them! Surely, there must be an efficient way to count the arrangements.
 // What is the total number of distinct ways you can arrange the adapters to connect the charging outlet to your device?
-var adapterArrayVariants = __spreadArrays(testAdapterArray2);
-var arrangements = [];
-var isValid = function (arr) {
-    // 0.948ms per check
-    var diffArray = arr.map(function (jolts, i) { return arr[i + 1] ? arr[i + 1] - jolts : 0; });
-    if (Math.min.apply(Math, diffArray) < 0 || Math.max.apply(Math, diffArray) > 3) {
-        return false;
-    }
-    return true;
-};
-var isValidShort = function (arr) {
-    // 0.012ms per check
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i + 1] && arr[i + 1] - arr[i] > 3)
-            return false;
-    }
-    return true;
-};
-var truncate = function (arr) {
-    // console.log(arr.length)
-    if (arr.length <= 2)
-        return;
-    var _loop_1 = function (i) {
-        if (arr[i + 1] - arr[i] >= 3) { // perfomance optimization
-            i++;
-            return out_i_1 = i, "continue";
-        }
-        var newArr = arr.filter(function (_, k) { return k !== i; });
-        if (isValidShort(newArr)) {
-            if (!arrangements.map(function (x) { return x.join(); }).includes(newArr.join())) {
-                arrangements.push(newArr);
-            }
-            truncate(newArr);
-        }
-        out_i_1 = i;
-    };
-    var out_i_1;
-    for (var i = 1; i < arr.length - 1; i++) {
-        _loop_1(i);
-        i = out_i_1;
-    }
-};
-truncate(adapterArrayVariants);
-console.log('result #2: ', arrangements.length + 1); // +1 for the origin state itself
+// const adapterArrayVariants = [...testAdapterArray]
+// let arrangements = []
+// const isValid = (arr: number[]) => {
+//   // 0.948ms per check
+//   const diffArray = arr.map((jolts, i) => arr[i + 1] ? arr[i + 1] - jolts : 0)
+//   if (Math.min(...diffArray) < 0 || Math.max(...diffArray) > 3) {
+//     return false
+//   }
+//   return true
+// }
+// const isValidShort = (arr: number[]) => {
+//   // 0.012ms per check
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i + 1] && arr[i + 1] - arr[i] > 3) return false
+//   }
+//   return true
+// }
+// const truncate = (arr: number[]) => {
+//   // console.log(arr.length)
+//   if (arr.length <= 2) return
+//   for (let i = 1; i < arr.length - 1; i++) {
+//     if (arr[i - 1] + arr[i + 1] >= 3) { // perfomance optimization
+//       continue
+//     }
+//     const newArr = arr.filter((_, k) => k !== i)
+//     if (isValidShort(newArr)) {
+//       if (!arrangements.map(x => x.join()).includes(newArr.join())) {
+//         arrangements.push(newArr)
+//       }
+//       truncate(newArr)
+//     }
+//   }
+// }
+// truncate(adapterArrayVariants)
+// TRY SHORT VERSION...  not working
 // const shortCut = (arr: number[]): number => {
 //   let count = 1
 //   const diffArray = arr.map((jolts, i) => arr[i + 1] ? arr[i + 1] - jolts : 0)
@@ -195,3 +179,31 @@ console.log('result #2: ', arrangements.length + 1); // +1 for the origin state 
 //   return count
 // }
 // console.log('result #2: ', shortCut(adapterArrayVariants))
+// TRY HACKY VERSION
+var permutations = 1;
+var numOnes = diffArray.filter(function (v) { return v === 1; }).length;
+var numTwos = diffArray.filter(function (v) { return v === 2; }).length;
+var numThrees = diffArray.filter(function (v) { return v === 3; }).length;
+var onlyOnesInARow = diffArray.join('').split('3').filter(function (x) { return x !== '' && x !== '0'; });
+onlyOnesInARow.forEach(function (ones) {
+    switch (ones.length) {
+        // (0) 1 4
+        case 1: break;
+        // (0) 1 2 5
+        case 2:
+            permutations *= 2;
+            break;
+        // (0) 1 2 3 6
+        case 3:
+            permutations *= 4;
+            break;
+        // (0) 1 2 3 4 7
+        case 4:
+            permutations *= 7;
+            break;
+        // (0) 1 2 3 4 5 8
+        // case 5: permutations *= 11; break;
+        default: console.log('more?! ', ones.length);
+    }
+});
+console.log('result #2: ', permutations, onlyOnesInARow);
