@@ -1,0 +1,556 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20201214.085847.4824.0.001.json",
+    "dumpEventTime": "2020-12-14T08:58:47Z",
+    "dumpEventTimeStamp": "1607932727533",
+    "processId": 4824,
+    "cwd": "/Users/deckelt/Documents/workspace/happyCoding/adventofcode2020",
+    "commandLine": [
+      "/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node",
+      "13-result.js"
+    ],
+    "nodejsVersion": "v12.12.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "darwin",
+    "componentVersions": {
+      "node": "12.12.0",
+      "v8": "7.7.299.13-node.12",
+      "uv": "1.32.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.12.0/node-v12.12.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.12.0/node-v12.12.0.tar.gz"
+    },
+    "osName": "Darwin",
+    "osRelease": "19.6.0",
+    "osVersion": "Darwin Kernel Version 19.6.0: Mon Aug 31 22:12:52 PDT 2020; root:xnu-6153.141.2~1/RELEASE_X86_64",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz",
+        "speed": 2300,
+        "user": 319262320,
+        "nice": 0,
+        "sys": 248725070,
+        "idle": 786615500,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz",
+        "speed": 2300,
+        "user": 52658370,
+        "nice": 0,
+        "sys": 57619780,
+        "idle": 1244137010,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz",
+        "speed": 2300,
+        "user": 310036040,
+        "nice": 0,
+        "sys": 196396280,
+        "idle": 847984100,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz",
+        "speed": 2300,
+        "user": 45693360,
+        "nice": 0,
+        "sys": 44473850,
+        "idle": 1264247860,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz",
+        "speed": 2300,
+        "user": 281688850,
+        "nice": 0,
+        "sys": 179294700,
+        "idle": 893432760,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz",
+        "speed": 2300,
+        "user": 44527210,
+        "nice": 0,
+        "sys": 40369100,
+        "idle": 1269518640,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz",
+        "speed": 2300,
+        "user": 254792370,
+        "nice": 0,
+        "sys": 159422550,
+        "idle": 940201270,
+        "irq": 0
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz",
+        "speed": 2300,
+        "user": 44110170,
+        "nice": 0,
+        "sys": 37611460,
+        "idle": 1272693180,
+        "irq": 0
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "lo0",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "fe80::1",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 1
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "f0:18:98:09:35:28",
+        "address": "fe80::c54:44a7:4d60:d410",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 6
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "f0:18:98:09:35:28",
+        "address": "192.168.0.230",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "f0:18:98:09:35:28",
+        "address": "2a02:8071:2b9c:5a00:1cd2:9916:5608:6022",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "f0:18:98:09:35:28",
+        "address": "2a02:8071:2b9c:5a00:cd45:bb5:c738:2d12",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "en0",
+        "internal": false,
+        "mac": "f0:18:98:09:35:28",
+        "address": "2a02:8071:2b9c:5a00::f907",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "awdl0",
+        "internal": false,
+        "mac": "4e:07:09:9e:5d:80",
+        "address": "fe80::4c07:9ff:fe9e:5d80",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 13
+      },
+      {
+        "name": "llw0",
+        "internal": false,
+        "mac": "4e:07:09:9e:5d:80",
+        "address": "fe80::4c07:9ff:fe9e:5d80",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 14
+      },
+      {
+        "name": "utun0",
+        "internal": false,
+        "mac": "00:00:00:00:00:00",
+        "address": "fe80::31fe:3c04:eae:b3e3",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 15
+      },
+      {
+        "name": "utun1",
+        "internal": false,
+        "mac": "00:00:00:00:00:00",
+        "address": "fe80::14d6:8cb1:1b8:8ae2",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 16
+      },
+      {
+        "name": "en5",
+        "internal": false,
+        "mac": "ac:de:48:00:11:22",
+        "address": "fe80::aede:48ff:fe00:1122",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 4
+      }
+    ],
+    "host": "DansPro"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x000000010014d93c",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, v8::Local<v8::String>) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x000000010007e87b",
+      "symbol": "node::OnFatalError(char const*, char const*) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000100176137",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001001760d3",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002fa185",
+      "symbol": "v8::internal::Heap::FatalProcessOutOfMemory(char const*) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002fb854",
+      "symbol": "v8::internal::Heap::RecomputeLimits(v8::internal::GarbageCollector) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002f8727",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002f670d",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000100301e24",
+      "symbol": "v8::internal::Heap::AllocateRawWithLightRetry(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000100301e9f",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001002cea97",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x00000001005f75f5",
+      "symbol": "v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x000000010092fa99",
+      "symbol": "Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    },
+    {
+      "pc": "0x0000000100930b41",
+      "symbol": "Builtins_StringAdd_CheckNone [/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2151485440,
+    "totalCommittedMemory": 2150771256,
+    "usedMemory": 1753511576,
+    "availableMemory": 48654160,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 32568,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 2097048,
+        "capacity": 1047488,
+        "used": 248,
+        "available": 1047240
+      },
+      "old_space": {
+        "memorySize": 2147856384,
+        "committedMemory": 2147782168,
+        "capacity": 1752820344,
+        "used": 1752820344,
+        "available": 0
+      },
+      "code_space": {
+        "memorySize": 425984,
+        "committedMemory": 259744,
+        "capacity": 188096,
+        "used": 188096,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 528384,
+        "committedMemory": 284336,
+        "capacity": 204880,
+        "used": 204880,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 266240,
+        "committedMemory": 266240,
+        "capacity": 262160,
+        "used": 262160,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047488,
+        "used": 0,
+        "available": 1047488
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 219.762,
+    "kernelCpuSeconds": 24.6989,
+    "cpuConsumptionPercent": 60.6603,
+    "maxRss": 2337322041344,
+    "pageFaults": {
+      "IORequired": 25,
+      "IONotRequired": 701436
+    },
+    "fsActivity": {
+      "reads": 0,
+      "writes": 0
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "TERM_PROGRAM": "iTerm.app",
+    "NODE": "/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node",
+    "INIT_CWD": "/Users/deckelt/Documents/workspace/happyCoding/adventofcode2020",
+    "NVM_CD_FLAGS": "-q",
+    "npm_config_version_git_tag": "true",
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/zsh",
+    "TMPDIR": "/var/folders/4z/jcps78f56r72h7v47mwvr5tm0000gn/T/",
+    "npm_package_scripts_tsc": "./node_modules/.bin/tsc",
+    "CONDA_SHLVL": "1",
+    "npm_config_init_license": "MIT",
+    "CONDA_PROMPT_MODIFIER": "(base) ",
+    "TERM_PROGRAM_VERSION": "3.4.2",
+    "TERM_SESSION_ID": "w0t1p0:512A6AFE-4817-4C74-A41B-AF9298072B23",
+    "npm_config_registry": "https://registry.yarnpkg.com",
+    "ZSH": "/Users/deckelt/.oh-my-zsh",
+    "npm_package_readmeFilename": "README.md",
+    "NVM_DIR": "/Users/deckelt/.nvm",
+    "USER": "deckelt",
+    "npm_package_description": "https://adventofcode.com/",
+    "CONDA_EXE": "/opt/miniconda3/bin/conda",
+    "SSH_AUTH_SOCK": "/private/tmp/com.apple.launchd.Hu5ZlBo1xz/Listeners",
+    "npm_package_scripts_check_env": "node -e 'console.log(process.env)' | grep npm",
+    "__CF_USER_TEXT_ENCODING": "0x1F5:0x0:0x0",
+    "npm_execpath": "/Users/deckelt/.yarn/bin/yarn.js",
+    "PAGER": "less",
+    "_CE_CONDA": "",
+    "LSCOLORS": "Gxfxcxdxbxegedabagacad",
+    "PATH": "/var/folders/4z/jcps78f56r72h7v47mwvr5tm0000gn/T/yarn--1607931920141-0.058184174668701294:/Users/deckelt/Documents/workspace/happyCoding/adventofcode2020/node_modules/.bin:/Users/deckelt/.config/yarn/link/node_modules/.bin:/Users/deckelt/.nvm/versions/node/v12.12.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/Users/deckelt/.nvm/versions/node/v12.12.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node_modules/npm/bin/node-gyp-bin:/opt/miniconda3/bin:/opt/miniconda3/condabin:/Users/deckelt/.nvm/versions/node/v12.12.0/bin:/Users/deckelt/.nvm:/usr/local/go/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/Users/deckelt/.yarn/bin:/Users/deckelt/.config/yarn/global/node_modules/.bin:/Applications/flutter/bin:/Applications/Maven/apache-maven-3.5.4/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"run13\"],\"original\":[\"run13\"]}",
+    "_": "/var/folders/4z/jcps78f56r72h7v47mwvr5tm0000gn/T/yarn--1607931920141-0.058184174668701294/node",
+    "npm_package_scripts_demo": "echo \"./node_modules/.bin/tsc$npm_config_file.ts | node $npm_config_file.js\"",
+    "CONDA_PREFIX": "/opt/miniconda3",
+    "npm_package_dependencies_typescript": "^4.1.2",
+    "PWD": "/Users/deckelt/Documents/workspace/happyCoding/adventofcode2020",
+    "JAVA_HOME": "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home",
+    "npm_lifecycle_event": "run13",
+    "LANG": "en_US.UTF-8",
+    "npm_package_name": "",
+    "ITERM_PROFILE": "Dans Hotkey Terminal",
+    "npm_package_scripts_teststart": "./node_modules/.bin/tsc$npm_config_file | node$npm_config_file",
+    "npm_package_scripts_build": "./node_modules/.bin/tsc --p ./tsconfig.json",
+    "npm_config_version_commit_hooks": "true",
+    "XPC_FLAGS": "0x0",
+    "npm_config_bin_links": "true",
+    "_CE_M": "",
+    "XPC_SERVICE_NAME": "0",
+    "npm_package_version": "",
+    "JDK_HOME": "/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home",
+    "SHLVL": "2",
+    "HOME": "/Users/deckelt",
+    "COLORFGBG": "15;0",
+    "LC_TERMINAL_VERSION": "3.4.2",
+    "npm_config_save_prefix": "^",
+    "npm_config_strict_ssl": "true",
+    "npm_config_version_git_message": "v%s",
+    "ITERM_SESSION_ID": "w0t1p0:512A6AFE-4817-4C74-A41B-AF9298072B23",
+    "npm_package_dependencies__types_node": "^14.14.11",
+    "CONDA_PYTHON_EXE": "/opt/miniconda3/bin/python",
+    "LESS": "-R",
+    "LOGNAME": "deckelt",
+    "YARN_WRAP_OUTPUT": "false",
+    "npm_lifecycle_script": "yarn tsc 13-result.ts && node 13-result.js",
+    "CONDA_DEFAULT_ENV": "base",
+    "NVM_BIN": "/Users/deckelt/.nvm/versions/node/v12.12.0/bin",
+    "GOPATH": "/Users/deckelt/go",
+    "npm_config_version_git_sign": "",
+    "npm_config_ignore_scripts": "",
+    "npm_config_user_agent": "yarn/1.22.4 npm/? node/v12.12.0 darwin x64",
+    "LC_TERMINAL": "iTerm2",
+    "npm_package_scripts_run12": "yarn tsc 12-result.ts && node 12-result.js",
+    "npm_config_init_version": "1.0.0",
+    "npm_config_ignore_optional": "",
+    "SQLITE_EXEMPT_PATH_FROM_VNODE_GUARDS": "/Users/deckelt/Library/WebKit/Databases",
+    "npm_package_scripts_run13": "yarn tsc 13-result.ts && node 13-result.js",
+    "NODE_EXTRA_CA_CERTS": "/etc/ssl/certs/hb_ca_chain.pem",
+    "npm_package_scripts_run10": "yarn tsc 10-result.ts && node 10-result.js",
+    "COLORTERM": "truecolor",
+    "npm_node_execpath": "/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node",
+    "npm_config_version_tag_prefix": "v",
+    "npm_config__inovex_registry": "https://artifactory.inovex.de/artifactory/api/npm/internal-npm/"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 24576,
+      "hard": "unlimited"
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": 67104768
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 2784,
+      "hard": 2784
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "/Users/deckelt/.nvm/versions/node/v12.12.0/bin/node",
+    "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+    "/usr/lib/libSystem.B.dylib",
+    "/usr/lib/libc++.1.dylib",
+    "/usr/lib/libobjc.A.dylib",
+    "/usr/lib/libfakelink.dylib",
+    "/usr/lib/libDiagnosticMessagesClient.dylib",
+    "/usr/lib/libicucore.A.dylib",
+    "/usr/lib/libz.1.dylib",
+    "/usr/lib/libc++abi.dylib",
+    "/usr/lib/system/libcache.dylib",
+    "/usr/lib/system/libcommonCrypto.dylib",
+    "/usr/lib/system/libcompiler_rt.dylib",
+    "/usr/lib/system/libcopyfile.dylib",
+    "/usr/lib/system/libcorecrypto.dylib",
+    "/usr/lib/system/libdispatch.dylib",
+    "/usr/lib/system/libdyld.dylib",
+    "/usr/lib/system/libkeymgr.dylib",
+    "/usr/lib/system/liblaunch.dylib",
+    "/usr/lib/system/libmacho.dylib",
+    "/usr/lib/system/libquarantine.dylib",
+    "/usr/lib/system/libremovefile.dylib",
+    "/usr/lib/system/libsystem_asl.dylib",
+    "/usr/lib/system/libsystem_blocks.dylib",
+    "/usr/lib/system/libsystem_c.dylib",
+    "/usr/lib/system/libsystem_configuration.dylib",
+    "/usr/lib/system/libsystem_coreservices.dylib",
+    "/usr/lib/system/libsystem_darwin.dylib",
+    "/usr/lib/system/libsystem_dnssd.dylib",
+    "/usr/lib/system/libsystem_featureflags.dylib",
+    "/usr/lib/system/libsystem_info.dylib",
+    "/usr/lib/system/libsystem_m.dylib",
+    "/usr/lib/system/libsystem_malloc.dylib",
+    "/usr/lib/system/libsystem_networkextension.dylib",
+    "/usr/lib/system/libsystem_notify.dylib",
+    "/usr/lib/system/libsystem_sandbox.dylib",
+    "/usr/lib/system/libsystem_secinit.dylib",
+    "/usr/lib/system/libsystem_kernel.dylib",
+    "/usr/lib/system/libsystem_platform.dylib",
+    "/usr/lib/system/libsystem_pthread.dylib",
+    "/usr/lib/system/libsystem_symptoms.dylib",
+    "/usr/lib/system/libsystem_trace.dylib",
+    "/usr/lib/system/libunwind.dylib",
+    "/usr/lib/system/libxpc.dylib"
+  ]
+}
